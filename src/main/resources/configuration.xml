@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="marysSong" class="ie.cit.thehit.domain.Song">
+		<constructor-arg name="name" value="Mary's farm"></constructor-arg>
+		<constructor-arg name="lyrics" value="Mary has a little lamb, her fleece is white as snow"></constructor-arg>
+	</bean>	
+	
+	<bean id="marywriter" class="ie.cit.thehit.domain.SongwriterImpl">
+		<constructor-arg name="song" ref="marysSong"></constructor-arg>
+		<constructor-arg name="firstname" value="Mary"></constructor-arg>
+		<constructor-arg name="lastname" value="BooPeep"></constructor-arg>
+		<constructor-arg name="age" value="21"></constructor-arg>
+	</bean> 
+	
+	<bean id="O2" class="ie.cit.thehit.domain.Venue">
+		<constructor-arg name="name" value="O2 arena"></constructor-arg>
+		<constructor-arg name="addressLine2" value="cork"></constructor-arg>
+		<constructor-arg name="addressLine1" value="Hanover st."></constructor-arg>
+		<constructor-arg name="country" value="Ireland"></constructor-arg>
+		<constructor-arg name="capacity" value="10000"></constructor-arg>
+	</bean> 
+	
+	<bean id="setterBeanSong" class="ie.cit.thehit.domain.Song">
+		<property name="name" value="Setter Marys song"></property>
+		<property name="lyrics" value="Setter lyrics lyrics"></property>		
+	</bean>
+	
+	<bean id="setterSongwriter" class="ie.cit.thehit.domain.SongwriterImpl">
+		<property name="firstname" value="Billy"></property>
+		<property name="lastname" value="Bob"></property>
+		<property name="song" ref="setterBeanSong"></property>
+	</bean>
+	
+	<bean id="irishcurrency" class="ie.cit.thehit.factories.CurrencyFactory" factory-method="createCurrency">
+		<constructor-arg name="country" value="Ireland"></constructor-arg>
+	</bean> 
+	
+	<bean id="britishcurrency" class="ie.cit.thehit.factories.CurrencyFactory" factory-method="createCurrency">
+		<constructor-arg name="country" value="UK"></constructor-arg>
+	</bean> 
+	
+	<bean id="theStage" class="ie.cit.thehit.domain.Stage" 
+		factory-method="getInstance"/>   
+
+	<bean id="theStage1" class="ie.cit.thehit.domain.Stage" 
+		factory-method="getInstance"/>
+
+</beans>

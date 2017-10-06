@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--Spring autowiring byName example -->	
+	<bean id="ticket" class="ie.cit.thehit.domain.Ticket">
+		<constructor-arg name="number" value="2"></constructor-arg>
+		<constructor-arg name="price" value="45.67"></constructor-arg>
+	</bean>
+	
+	<bean id="autowireAudienceBean" class="ie.cit.thehit.domain.AudienceImpl" autowire="byName">
+		<property name="firstname" value="john"></property>
+		<property name="lastname" value="doe"></property>
+		<property name="age" value="35"></property>
+	</bean> 
+	
+	<!-- autowiring byType -->
+	<bean id="autoWireTypeBean" class="ie.cit.thehit.domain.AudienceImpl" autowire="byType">
+		<property name="firstname" value="Peter"></property>
+		<property name="lastname" value="Summers"></property>
+		<property name="age" value="33"></property>
+	</bean>
+
+	<!-- autowiring by constructor -->
+	<bean id="autoWireConstructorBean" class="ie.cit.thehit.domain.AudienceImpl" autowire="constructor">
+		<constructor-arg name="firstname" value="Thomas"></constructor-arg>
+		<constructor-arg name="lastname" value="Winters"></constructor-arg>
+		<constructor-arg name="age" value="31"></constructor-arg>
+	</bean>
+	
+	<!-- Used in qualifier example but not working	
+	<bean id="ticketA" class="ie.cit.thehit.domain.Ticket">
+		<constructor-arg name="number" value="3"></constructor-arg>
+		<constructor-arg name="price" value="56.78"></constructor-arg>
+	</bean>
+	
+	<bean id="ticketB" class="ie.cit.thehit.domain.Ticket">
+		<constructor-arg name="number" value="4"></constructor-arg>
+		<constructor-arg name="price" value="12.34"></constructor-arg>
+	</bean>
+	-->	
+
+</beans>

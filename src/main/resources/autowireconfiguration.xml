@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--Spring autowiring byName example -->	
+	<bean id="song" class="ie.cit.thehit.domain.Song">
+		<constructor-arg name="name" value="silly nsss"></constructor-arg>
+		<constructor-arg name="lyrics" value="Hello world"></constructor-arg>
+	</bean>
+	
+	<!-- autowiring byName -->
+	<bean id="autoWireExampleBean" class="ie.cit.thehit.domain.SongwriterImpl" autowire="byName">
+		<property name="firstname" value="Peter"></property>
+		<property name="lastname" value="Summers"></property>
+		<property name="age" value="33"></property>
+	</bean> 
+	
+</beans>
